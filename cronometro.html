@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cronômetro</title>
+</head>
+<body>
+	<p>Cronômetro Regressivo</p>
+	<br>
+
+	<div id="contador">0</div>
+	<div>
+		<button id="incrementar">+</button>
+		<button id="decrementar">-</button>
+		<button id="iniciar">INICIAR</button>
+	</div>
+	<script>
+ 		document.getElementById('incrementar').onclick = function() {
+ 			var valor = document.getElementById('contador').innerHTML;
+ 			valor = parseInt(valor);
+ 			valor++;
+ 			document.getElementById('contador').innerHTML = valor;
+		}
+
+		document.getElementById('decrementar').onclick = function() {
+ 			var i = setInterval(function(){
+				var valor = document.getElementById('contador').innerHTML;
+				valor = parseInt(valor);
+				if (valor > 0) {
+					valor--;
+					clearInterval(i);
+				}
+				document.getElementById('contador').innerHTML = valor;
+			},1000);
+
+
+		}
+
+		document.getElementById('iniciar').onclick = function(){
+			var i = setInterval(function(){
+				var valor = document.getElementById('contador').innerHTML;
+				valor = parseInt(valor);
+				valor--;
+				if (valor == 0) {
+					clearInterval(i);
+				}
+				document.getElementById('contador').innerHTML = valor;
+			},1000);
+
+
+		}
+	</script>
+	
+	
+</body>
+</html>
